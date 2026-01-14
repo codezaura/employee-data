@@ -1,7 +1,7 @@
 {
-  "name": "avatar-backend",
+  "name": "employee-data-backend",
   "version": "1.0.0",
-  "description": "this is avatar-saver backend",
+  "description": "server of employee data",
   "main": "index.js",
   "type": "module",
   "scripts": {

@@ -1,18 +1,17 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router";
-import Home from "./pages/Home";
-import Update from "./pages/Update";
+import { BrowserRouter } from "react-router";
+import { Router } from "./routes/router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-const App = () => {
-    return (
-        <>
-            <Router>
-                <Routes>
-                    <Route index element={<Home />} />
-                    <Route path="/update/:employeeId" element={<Update />} />
-                </Routes>
-            </Router>
-        </>
-    );
-};
+const queryClient = new QueryClient();
 
-export default App;
+export default function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
+}
